@@ -4,9 +4,9 @@
   <title>Taw - CiSGA</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="bootstrap-4.1.0/dist/css/bootstrap.min.css">
-  <script src="bootstrap-4.1.0/dist/jquery/jquery-3.3.1.js"></script>
-  <script src="bootstrap-4.1.0/dist/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="librerias/bootstrap-4.1.0/dist/css/bootstrap.min.css">
+  <script src="librerias/bootstrap-4.1.0/dist/jquery/jquery-3.3.1.js"></script>
+  <script src="librerias/bootstrap-4.1.0/dist/js/bootstrap.min.js"></script>
 </head>
 <body>
  
@@ -43,6 +43,13 @@
   </div>
 
 </form>
+<?php
+	if(isset($_GET['$logged'])){
+		
+		usuario_incorrecto();
+	
+}
+?>
 </div>
 	
 
