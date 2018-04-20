@@ -23,7 +23,7 @@
 			}
 		}
 		else{
-			header('Location: ../vista/badlogin.php');
+			header('Location: ../index.php?$logged=false');
 			exit;
 		}
 	}
