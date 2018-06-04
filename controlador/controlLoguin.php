@@ -1,30 +1,31 @@
 <?php 
-	//ini_set("session.use_cookie",0);
-	//session_cache_limiter("nocache");
-	echo 'hola';
+      //ini_set("session.use_cookie",0);
+	  //session_cache_limiter("nocache");
+	
 	if(isset($_POST['nif']) && !empty($_POST['password'])){
-		echo 'hola';
+		//echo 'hola';
 		require_once('../modelo/modeloLogin.php');
 		$nif=$_POST['nif'];
 		$pwd=$_POST['password'];
 		$pwd= md5($pwd);
 		$usuario=consultaUser($nif,$pwd);
-		print_r ($usuario);
+		//print_r ($usuario);
 		if($usuario!= false){
-			
-			//$_SESSION
-			//session_start();
-			print_r($usuario);
-			print_r($_SESSION);
+			session_start();
+			$_SESSION['usuario']=$usuario;
+			echo 'hola';
+            echo session_name();
+			echo session_id();
 			if ($usuario['rol']==1){
-
-				header("Location: ../vista/user.php");
+              
+				header("Location: ../vista/usuario.php");
+				exit();
 				
 			}
 		}
 		else{
-			header('Location: ../index.php?$logged=false');
-			exit;
+			header('Location: ../vista/login.php?$logged=error');
+			exit();
 		}
 	}
 ?>
